@@ -1,0 +1,4 @@
+dash to dock --> launchers --> show trash can [On] >>> [Off]
+	     		   --> show mounted volumes and devices [On] >>> [Off]
+	     --> behavior --> click action >>> [Minimize]
+	     --> position and size --> intelligent autohide [settings] --> dodge windows >>> [All windows]

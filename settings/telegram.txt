@@ -1,0 +1,6 @@
+dark theme
+togliere download automatici
+cambiare tema
+cambiare colore secondario tema
+spostare chat archiviate nel menu
+cambiare notifiche

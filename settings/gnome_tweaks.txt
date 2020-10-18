@@ -1,0 +1,7 @@
+keyboard & mouse --> mouse --> mouse click emulation [Fingers] >>> [Area]
+
+top bar --> battery percentage [Off] >>> [On]
+	--> Clock --> weekday [Off] >>> [On]
+	
+window titlebars --> titlebars buttons --> maximize [Off] >>> [On]
+					--> minimize [Off] >>> [On]

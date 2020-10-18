@@ -1,0 +1,3 @@
+preferences -> profiles -> Pop -> text -> custom font >>> [Jetbrains Mono Regular]
+			       -> scrolling -> show scrollbar [on] >>> [off]
+			       -> colors -> TODODODODODODODO

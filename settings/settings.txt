@@ -1,0 +1,6 @@
+settings -> mouse & touchpad -> touchpad -> natural scrolling [OFF] >>> [ON]
+ 	 -> appearance -> sfondo
+	 -> keyboard shortcuts -> navigation -> "Hide all normal windows" [Disabled] >>> [Super + D]
+	 -> users -> set propic
+	 -> date & time -> time format [AM/PM] >>> [24-hour]
+	 -> about -> device name [pop-os] >>> [xps15]

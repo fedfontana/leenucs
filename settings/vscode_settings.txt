@@ -1,0 +1,2 @@
+settings --> preferences --> font >>> ['JBMono']
+settings sync (su account ms federico.fontana2000@gmail.com)

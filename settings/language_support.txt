@@ -1,0 +1,3 @@
+language --> install / remove languages [Rimuovere tutte le lingue monche (lasciare solo italiano ed inglese)]
+
+regional formats >>> [Italiano (Italia)]
