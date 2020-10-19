@@ -65,12 +65,14 @@ ZSH_THEME="eastwood"
 
 # Aliases
 
-alias ls='ls -al --hyperlink=auto'
+alias vimrc='nvim $HOME/.vimrc'
 #alias piconnect='ssh ubuntu 192.168.1.98'
 alias vim='nvim'
 alias zshrc='nvim $HOME/.zshrc'
 alias gaa='git add .'
 alias ga='git add'
+unalias gc
+#unset gc
 alias gc='git commit -m'
 alias gp='git push'
 alias gst='git status'
