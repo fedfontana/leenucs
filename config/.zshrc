@@ -71,9 +71,11 @@ alias vim='nvim'
 alias zshrc='nvim $HOME/.zshrc'
 alias gaa='git add .'
 alias ga='git add'
-unalias gc
+#unalias gc
 #unset gc
-alias gc='git commit -m'
+#per mettere alias gc giusto:
+#	- vim $HOME/.oh-my-zsh/plugins/git/git.plugin.zsh
+#alias gc='git commit -m'
 alias gp='git push'
 alias gst='git status'
 alias code='code-insiders'
