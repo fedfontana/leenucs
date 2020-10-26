@@ -100,6 +100,16 @@ ghrepo() {
 	git push -u origin master
 }
 
+#fare in modo che se il numero di robe passate alla funzione è 0 il virtualenv si chiami venv
+virtualenv() {
+	python3 -m virtualenv $1
+}
+
+venv() {
+	python3 -m virtualenv $1
+	source $1/bin/activate	
+}
+
 export PATH=$PATH:$HOME/.flutter/bin
 
 # Which plugins would you like to load?
