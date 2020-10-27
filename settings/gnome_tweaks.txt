@@ -5,3 +5,5 @@ top bar --> battery percentage [Off] >>> [On]
 	
 window titlebars --> titlebars buttons --> maximize [Off] >>> [On]
 					--> minimize [Off] >>> [On]
+
+dash to dock --> behaviour --> use keyboard shortcuts to active apps --> shortcut for the options above [<Super>q] >>> []
