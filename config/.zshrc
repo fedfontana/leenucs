@@ -110,7 +110,7 @@ venv() {
 	source $1/bin/activate	
 }
 
-export PATH=$PATH:$HOME/.flutter/bin
+export PATH=$PATH:$HOME/.flutter/bin:$HOME/Android/Sdk/emulator
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
