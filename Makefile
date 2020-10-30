@@ -133,9 +133,28 @@ eclipse:
 bat:
 	sudo apt install bat -y
 
+input_font:
+  cp -r ./input_font ~/.fonts/Input
+  fc-cache -fv
+
+#controllare perche non funzionano
+ln_zshrc:
+  ln -s ./config/.zshrc ~/.zshrc
+
+ln_bashrc:
+  ln -s ./config/.bashrc ~/.bashrc
+
+ln_vimrc:
+  ln -s ./config/.vimrc ~/.vimrc
+# ln -s $HOME/repo/leenucs/config/.bashrc $HOME/.bashrc funziona
+symlinks: ln_zshrc ln_bashrc ln_vimrc
+
+
 #TODO
 
 #Aggiungere settaggi generali
 #Aggiungere settaggi "minimali" e completi
 
 #prendere .vimrc da hdd
+
+#potrebbe aver senso fare un (pwd > qualcosa) per avere cartella corrente e rendere generici i comandi?
