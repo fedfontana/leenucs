@@ -27,15 +27,13 @@ grub_customizer:
 sshkey:
 	ssh-keygen
 
+#funziona su popos? forse? controllare
 vscode:
+	sudo apt install code
 
 zsh:
 	sudo apt install -y zsh
 	
-#Scrivere cosa fanno i falg -p e -v
-zshrc: zsh
-	cp -p -v ~/repo/leenucs/config/.zshrc ~/.zshrc
-
 ohmyzsh: zsh
 	sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
@@ -81,8 +79,12 @@ msteams:
 	
 discord:
 	wget -O discord.deb "https://discordapp.com/api/download?platform=linux&format=deb"
-	sudo apt install -y ~/discord.deb
-	rm ~/discord.deb
+	sudo apt install -y ./discord.deb
+	rm ./discord.deb
+
+#controllare comando e controllare flag di curl
+docker:
+	curl -fsSL https://get.docker.com -o get-docker.sh
 
 vlc:
 	sudo apt install -y vlc
@@ -117,14 +119,21 @@ java:
 pip3: 
 	sudo apt install -y python3-pip
 
-#TODO, https://flutter.dev/docs/get-started/install/linux#update-your-path, in .bashrc c'è la riga in fondo con export blabla (=> da mettere in .zshrc)
-flutter: 
+#! controllare se è già in path!
+flutter: git
+	git clone -v --progress https://github.com/flutter/flutter.git ~/.flutter
 
-#TODO https://developer.android.com/studio
-android:
 
-#WARNING: The script virtualenv is installed in '/home/fede/.local/bin' which is not on PATH.
-#Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+# non testata
+#! aggiungere a path/controllare se c'è già
+android: java
+	sudo apt-add-repository ppa:paolorotolo/android-studio
+	sudo apt update
+	sudo apt install android-studio
+	/opt/android-studio/bin/studio.sh
+
+#!WARNING: The script virtualenv is installed in '/home/fede/.local/bin' which is not on PATH.
+#!Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
 pyvenv: pip3
 	pip3 install virtualenv
 
@@ -133,27 +142,23 @@ eclipse:
 bat:
 	sudo apt install bat -y
 
+#così non lo installi, ci vorrebbe un comando per scaricarlo e installarlo
 input_font:
-  cp -r ./input_font ~/.fonts/Input
-  fc-cache -fv
+	cp -r ./input_font ~/.fonts/Input
+	fc-cache -fv
 
 #controllare perche non funzionano
 ln_zshrc:
-  ln -s ./config/.zshrc ~/.zshrc
+	ln -s ./config/.zshrc ~/.zshrc
 
 ln_bashrc:
-  ln -s ./config/.bashrc ~/.bashrc
+	ln -s ./config/.bashrc ~/.bashrc
 
 ln_vimrc:
-  ln -s ./config/.vimrc ~/.vimrc
+	ln -s ./config/.vimrc ~/.vimrc
+
 # ln -s $HOME/repo/leenucs/config/.bashrc $HOME/.bashrc funziona
 symlinks: ln_zshrc ln_bashrc ln_vimrc
-
-
-#TODO
-
-#Aggiungere settaggi generali
-#Aggiungere settaggi "minimali" e completi
 
 #prendere .vimrc da hdd
 
