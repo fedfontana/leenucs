@@ -4,7 +4,7 @@ update:
 upgrade: update
 	sudo apt-get upgrade
 
-#Controllare i flag di curl e fc-cache
+#TODO Controllare i flag di curl e fc-cache
 jetbrains: curl
 	curl -LOk https://download.jetbrains.com/fonts/JetBrainsMono-1.0.3.zip
 	unzip JetBrainsMono-1.0.3.zip -d ~/.fonts
@@ -17,7 +17,6 @@ curl:
 vim:	
 	sudo apt install -y vim
 
-#Quali sono le differenze con vim? Togliere comando vim se nvim è meglio
 neovim:
 	sudo apt install -y neovim
 
@@ -27,7 +26,7 @@ grub_customizer:
 sshkey:
 	ssh-keygen
 
-#funziona su popos? forse? controllare
+#? funziona su popos? forse? controllare
 vscode:
 	sudo apt install code
 
@@ -37,7 +36,7 @@ zsh:
 ohmyzsh: zsh
 	sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
-#NON FUNZIONA!!!!!
+#? funziona????
 set_default_zsh: zsh
 #	chsh -s $(which zsh)
 	chsh -s ~/usr/bin/zsh
@@ -48,7 +47,7 @@ tweaks:
 telegram:
 	sudo apt install -y telegram-desktop
 
-#Controllare i flag, controllare tee e i suoi flag, controllare se i flag di wget sono utili o meno 
+#TODO Controllare i flag, controllare tee e i suoi flag, controllare se i flag di wget sono utili o meno 
 insomnia:
 	echo "deb https://dl.bintray.com/getinsomnia/Insomnia /" | sudo tee -a /etc/apt/sources.list.d/insomnia.list
 	wget --quiet -O - https://insomnia.rest/keys/debian-public.key.asc | sudo apt-key add -
@@ -58,12 +57,12 @@ insomnia:
 git:
 	sudo apt install -y git
 
-#Controllare altri flag possibili da settare e settarli
+#TODO Controllare altri flag possibili da settare e settarli
 git_config: git
 	git config --global user.email "federico.fontana2000@gmail.com"
 	git config --global user.name "Federico Fontana"
 
-#Come si fa? Plz omg fix your distro omg omg omg what does systemdboot whant from me
+#?????
 setbootdefault:
 
 tree:
@@ -74,16 +73,16 @@ boxes:
 	
 msteams:
 	wget https://packages.microsoft.com/repos/ms-teams/pool/main/t/teams/teams_1.3.00.5153_amd64.deb
-	sudo apt install ~/teams_1.3.00.5153_amd64.deb
-	rm ~/teams_1.3.00.5153_amd64.deb
+	sudo apt install ./teams_1.3.00.5153_amd64.deb
+	rm ./teams_1.3.00.5153_amd64.deb
 	
 discord:
 	wget -O discord.deb "https://discordapp.com/api/download?platform=linux&format=deb"
 	sudo apt install -y ./discord.deb
 	rm ./discord.deb
 
-#controllare comando e controllare flag di curl
-docker:
+#TODO controllare comando e controllare flag di curl
+docker: curl
 	curl -fsSL https://get.docker.com -o get-docker.sh
 
 vlc:
@@ -97,8 +96,6 @@ templates:
 
 ranger: 
 	sudo apt-get install -y ranger
-
-colorls:
 
 imagemagick: 
 	sudo apt-get install -y imagemagick
@@ -122,11 +119,11 @@ pip3:
 #! controllare il path
 dart: git
 	sudo apt update
-	sudo apt install apt-transport-https
+	sudo apt install -y apt-transport-https
 	sudo sh -c 'wget -qO- https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -'
 	sudo sh -c 'wget -qO- https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list > /etc/apt/sources.list.d/dart_stable.list'
 	sudo apt update
-	sudo apt install dart
+	sudo apt install -y dart
 
 #! controllare se è già in path!
 flutter: git dart
@@ -138,7 +135,7 @@ flutter: git dart
 android: java
 	sudo apt-add-repository ppa:paolorotolo/android-studio
 	sudo apt update
-	sudo apt install android-studio
+	sudo apt install -y android-studio
 	/opt/android-studio/bin/studio.sh
 
 #!WARNING: The script virtualenv is installed in '/home/fede/.local/bin' which is not on PATH.
@@ -147,28 +144,32 @@ pyvenv: pip3
 	pip3 install virtualenv
 
 eclipse:
+	#wget https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/2020-09/R/eclipse-java-2020-09-R-linux-gtk-x86_64.tar.gz&mirror_id=17
 
 bat:
-	sudo apt install bat -y
+	sudo apt install -y bat
 
-#così non lo installi, ci vorrebbe un comando per scaricarlo e installarlo
+#TODO così non lo installi, ci vorrebbe un comando per scaricarlo e installarlo
 input_font:
 	cp -r ./input_font ~/.fonts/Input
 	fc-cache -fv
 
-#controllare perche non funzionano
+ln_prova:
+	touch provalink.txt
+	echo fanculo > provalink.txt
+	ln -s ~/repo/leenucs/provalink.txt ~/provalink.txt
+
 ln_zshrc:
-	ln -s ./config/.zshrc ~/.zshrc
+	ln -s ~/repo/leenucs/config/.zshrc ~/.zshrc
 
 ln_bashrc:
-	ln -s ./config/.bashrc ~/.bashrc
+	ln -s ~/repo/leenucs/config/.bashrc ~/.bashrc
 
 ln_vimrc:
-	ln -s ./config/.vimrc ~/.vimrc
+	ln -s ~/repo/leenucs/config/.vimrc ~/.vimrc
 
-# ln -s $HOME/repo/leenucs/config/.bashrc $HOME/.bashrc funziona
 symlinks: ln_zshrc ln_bashrc ln_vimrc
+	@echo Symlink fatti!
 
 #prendere .vimrc da hdd
-
-#potrebbe aver senso fare un (pwd > qualcosa) per avere cartella corrente e rendere generici i comandi?
+#TODO potrebbe aver senso fare un (pwd > qualcosa) per avere cartella corrente e rendere generici i comandi?
