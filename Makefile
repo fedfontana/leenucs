@@ -2,7 +2,7 @@ update:
 	sudo apt-get update
 
 upgrade: update
-	sudo apt-get upgrade
+	sudo apt-get upgrade -y
 
 #TODO Controllare i flag di curl e fc-cache
 jetbrains: curl
@@ -12,7 +12,7 @@ jetbrains: curl
 	fc-cache -fv	
 
 curl:
-	sudo apt install curl
+	sudo apt install -y curl
 
 vim:	
 	sudo apt install -y vim
@@ -26,17 +26,18 @@ grub_customizer:
 sshkey:
 	ssh-keygen
 
-#? funziona su popos? forse? controllare
+#? mettere il check! questo funziona solo su popos
 vscode:
 	sudo apt install code
 
 zsh:
 	sudo apt install -y zsh
-	
+
+#! c'è qualcosa che non funziona: scrive sh -c ""
 ohmyzsh: zsh
 	sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
-#? funziona????
+#! non funziona!
 set_default_zsh: zsh
 #	chsh -s $(which zsh)
 	chsh -s ~/usr/bin/zsh
@@ -76,12 +77,14 @@ msteams:
 	sudo apt install ./teams_1.3.00.5153_amd64.deb
 	rm ./teams_1.3.00.5153_amd64.deb
 	
+#! sudo apt install discord funziona su popos! controllare se funziona su "tutte" le distro. Se non funziona da tutte le parti mettere controllo!
 discord:
 	wget -O discord.deb "https://discordapp.com/api/download?platform=linux&format=deb"
 	sudo apt install -y ./discord.deb
 	rm ./discord.deb
 
 #TODO controllare comando e controllare flag di curl
+#! non funziona
 docker: curl
 	curl -fsSL https://get.docker.com -o get-docker.sh
 
@@ -91,6 +94,7 @@ vlc:
 neofetch: 
 	sudo apt install -y neofetch
 
+#! aggiungere altri templates: .gitignore, tex.gitignore, ecc
 templates: 
 	touch ~/Templates/plain_text.txt
 
@@ -102,7 +106,9 @@ imagemagick:
 
 htop:
 	sudo apt-get install -y htop
-	
+
+#! il comando fallisce se una delle due cartelle già esiste! Wrappare ognuno dei due comandi in un if
+#! aggiungere altre cartelle che voglio sempre
 folder_setup: 
 	mkdir ~/repo
 	mkdir ~/uni
@@ -129,7 +135,6 @@ dart: git
 flutter: git dart
 	git clone -v --progress https://github.com/flutter/flutter.git ~/.flutter
 
-
 # non testata
 #! aggiungere a path/controllare se c'è già
 android: java
@@ -143,6 +148,7 @@ android: java
 pyvenv: pip3
 	pip3 install virtualenv
 
+#! da fare
 eclipse:
 	#wget https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/2020-09/R/eclipse-java-2020-09-R-linux-gtk-x86_64.tar.gz&mirror_id=17
 
@@ -150,15 +156,13 @@ bat:
 	sudo apt install -y bat
 
 #TODO così non lo installi, ci vorrebbe un comando per scaricarlo e installarlo
+#! così non funziona! bisogna controllare che la cartella .fonts esista e crearla se non esiste già!
+#! fare .phony e metterci input font dentro
 input_font:
 	cp -r ./input_font ~/.fonts/Input
 	fc-cache -fv
 
-ln_prova:
-	touch provalink.txt
-	echo fanculo > provalink.txt
-	ln -s ~/repo/leenucs/provalink.txt ~/provalink.txt
-
+#! per tutti i symlink: controllare che il file di destinazione non esista. Se esiste, eliminarlo prima di dare il comando ln
 ln_zshrc:
 	ln -s ~/repo/leenucs/config/.zshrc ~/.zshrc
 
@@ -171,5 +175,4 @@ ln_vimrc:
 symlinks: ln_zshrc ln_bashrc ln_vimrc
 	@echo Symlink fatti!
 
-#prendere .vimrc da hdd
 #TODO potrebbe aver senso fare un (pwd > qualcosa) per avere cartella corrente e rendere generici i comandi?
