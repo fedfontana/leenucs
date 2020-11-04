@@ -205,3 +205,6 @@ symlinks: ln_zshrc ln_bashrc ln_vimrc
 	@echo Symlink fatti!
 
 #TODO potrebbe aver senso fare un (pwd > qualcosa) per avere cartella corrente e rendere generici i comandi?
+
+#! link utili 
+# https://unix.stackexchange.com/questions/6345/how-can-i-get-distribution-name-and-version-number-in-a-simple-shell-script
