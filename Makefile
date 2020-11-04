@@ -1,3 +1,6 @@
+.PHONY: input_font
+
+
 update: 
 	sudo apt-get update
 
@@ -183,6 +186,7 @@ bat:
 #TODO così non lo installi, ci vorrebbe un comando per scaricarlo e installarlo
 #! così non funziona! bisogna controllare che la cartella .fonts esista e crearla se non esiste già!
 #! fare .phony e metterci input font dentro
+# https://input.fontbureau.com/download/index.html?customize&fontSelection=fourStyleFamily&regular=InputMonoNarrow-Regular&italic=InputMonoNarrow-Italic&bold=InputMonoNarrow-Bold&boldItalic=InputMonoNarrow-BoldItalic&a=ss&g=ss&i=serif&l=serif&zero=slash&asterisk=0&braces=straight&preset=consolas&line-height=1.2&email=
 input_font:
 	cp -r ./input_font ~/.fonts/Input
 	fc-cache -fv
@@ -201,5 +205,3 @@ symlinks: ln_zshrc ln_bashrc ln_vimrc
 	@echo Symlink fatti!
 
 #TODO potrebbe aver senso fare un (pwd > qualcosa) per avere cartella corrente e rendere generici i comandi?
-
-.PHONY: input_font
