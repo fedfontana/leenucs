@@ -151,34 +151,30 @@ android: java
 pyvenv: pip3
 	pip3 install virtualenv
 
-#? https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/neon/3/eclipse-java-neon-3-linux-gtk-x86_64.tar.gz&format=xml
-#! guardare quale versione è migliore
-#! non è minimamente generica! :se io avessi clonato il repo in un altro posto?
-#? siamo sicuri che eclipse java neon 3 sia quello giusto?
-#source metodo scritto https://www.javahelps.com/2015/03/install-latest-eclipse-in-ubuntu.html
-#source altra gente che dice roba simile https://askubuntu.com/questions/26632/how-to-install-eclipse
+#! aggiungere eclipse a path
+#! non generica! :se io avessi clonato il repo in un altro posto?
 #TODO controllare flags per wget
 eclipse: java
-
-	wget https://ftp.fau.de/eclipse/technology/epp/downloads/release/neon/3/eclipse-java-neon-3-linux-gtk-x86_64.tar.gz
+	cd /tmp
+	wget https://mirror.ibcp.fr/pub/eclipse/technology/epp/downloads/release/2020-09/R/eclipse-java-2020-09-R-linux-gtk-x86_64.tar.gz
 	cd /opt
-	sudo tar -xzf ~/repo/leenucs/eclipse-java-neon-3-linux-gtk-x86_64.tar.gz
-	cd ~/repo/leenucs #? perche non fare sta roba in /tmp? --> non bisogna fare rm alla fine 
+	sudo tar -xzf ~/tmp/eclipse-java-2020-09-R-linux-gtk-x86_64.tar.gz
+	cd /tmp #? perche non fare sta roba in /tmp? --> non bisogna fare rm alla fine 
 	touch eclipse.desktop
 	@echo "[Desktop Entry] 
-Name=Eclipse
-Type=Application
-Exec=/opt/eclipse/eclipse
-Terminal=false
-Icon=/opt/eclipse/icon.xpm
-Comment=Integrated Development Environment
-NoDisplay=false
-Categories=Development;IDE;
-Name[en]=Eclipse
-Name[en_US]=Eclipse" > eclipse.desktop
+	Name=Eclipse
+	Type=Application
+	Exec=/opt/eclipse/eclipse
+	Terminal=false
+	Icon=/opt/eclipse/icon.xpm
+	Comment=Integrated Development Environment
+	NoDisplay=false
+	Categories=Development;IDE;
+	Name[en]=Eclipse
+	Name[en_US]=Eclipse" > eclipse.desktop
 	@echo Filled eclipse.desktop with the right data!
 	sudo desktop-file-install eclipse.desktop
-	#rm eclipse.desktop #? necessario?
+	cd ~/repo/leenucs
 
 bat:
 	sudo apt install -y bat
