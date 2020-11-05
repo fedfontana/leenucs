@@ -155,12 +155,9 @@ pyvenv: pip3
 #! non generica! :se io avessi clonato il repo in un altro posto?
 #TODO controllare flags per wget
 eclipse: java
-	cd /tmp
-	wget https://mirror.ibcp.fr/pub/eclipse/technology/epp/downloads/release/2020-09/R/eclipse-java-2020-09-R-linux-gtk-x86_64.tar.gz
-	cd /opt
-	sudo tar -xzf ~/tmp/eclipse-java-2020-09-R-linux-gtk-x86_64.tar.gz
-	cd /tmp #? perche non fare sta roba in /tmp? --> non bisogna fare rm alla fine 
-	touch eclipse.desktop
+	cd /tmp; wget https://mirror.ibcp.fr/pub/eclipse/technology/epp/downloads/release/2020-09/R/eclipse-java-2020-09-R-linux-gtk-x86_64.tar.gz
+	cd /opt; sudo tar -xzf ~/tmp/eclipse-java-2020-09-R-linux-gtk-x86_64.tar.gz
+	cd /tmp; touch eclipse.desktop #? perche non fare sta roba in /tmp? --> non bisogna fare rm alla fine  
 	@echo "[Desktop Entry] 
 	Name=Eclipse
 	Type=Application
@@ -171,10 +168,9 @@ eclipse: java
 	NoDisplay=false
 	Categories=Development;IDE;
 	Name[en]=Eclipse
-	Name[en_US]=Eclipse" > eclipse.desktop
+	Name[en_US]=Eclipse" > /tmp/eclipse.desktop
 	@echo Filled eclipse.desktop with the right data!
-	sudo desktop-file-install eclipse.desktop
-	cd ~/repo/leenucs
+	sudo desktop-file-install /tmp/eclipse.desktop
 
 bat:
 	sudo apt install -y bat
