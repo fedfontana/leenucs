@@ -87,7 +87,7 @@ venv() {
 	source $1/bin/activate	
 }
 
-export PATH=$PATH:$HOME/.flutter/bin:$HOME/Android/Sdk/emulator
+export PATH=$PATH:~/.flutter/bin:~/Android/Sdk/emulator:~/.npm-global/bin
 
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
