@@ -1,5 +1,23 @@
 .PHONY: input_font
 
+define eclipse_desktop_string
+[Desktop Entry] 
+Name=Eclipse
+Type=Application
+Exec=/opt/eclipse/eclipse
+Terminal=false
+Icon=/opt/eclipse/icon.xpm
+Comment=Integrated Development Environment
+NoDisplay=false
+Categories=Development;IDE;
+Name[en]=Eclipse
+Name[en_US]=Eclipse
+endef
+
+prova: 
+	touch popoprova.txt
+	@echo '$(info $(eclipse_desktop_string))' > popoprova.txt 
+
 
 update: 
 	sudo apt-get update
@@ -156,19 +174,9 @@ pyvenv: pip3
 #TODO controllare flags per wget
 eclipse: java
 	cd /tmp; wget https://mirror.ibcp.fr/pub/eclipse/technology/epp/downloads/release/2020-09/R/eclipse-java-2020-09-R-linux-gtk-x86_64.tar.gz
-	cd /opt; sudo tar -xzf ~/tmp/eclipse-java-2020-09-R-linux-gtk-x86_64.tar.gz
-	cd /tmp; touch eclipse.desktop #? perche non fare sta roba in /tmp? --> non bisogna fare rm alla fine  
-	@echo "[Desktop Entry] 
-	Name=Eclipse
-	Type=Application
-	Exec=/opt/eclipse/eclipse
-	Terminal=false
-	Icon=/opt/eclipse/icon.xpm
-	Comment=Integrated Development Environment
-	NoDisplay=false
-	Categories=Development;IDE;
-	Name[en]=Eclipse
-	Name[en_US]=Eclipse" > /tmp/eclipse.desktop
+	cd /opt; sudo tar -xzf /tmp/eclipse-java-2020-09-R-linux-gtk-x86_64.tar.gz
+	touch /tmp/eclipse.desktop #? perche non fare sta roba in /tmp? --> non bisogna fare rm alla fine  
+	@echo  > /tmp/eclipse.desktop
 	@echo Filled eclipse.desktop with the right data!
 	sudo desktop-file-install /tmp/eclipse.desktop
 
