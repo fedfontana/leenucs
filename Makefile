@@ -183,6 +183,14 @@ eclipse: java
 bat:
 	sudo apt install -y bat
 
+razer:
+  	sudo apt-add-repository -y ppa:openrazer/stable
+  	sudo add-apt-repository -y ppa:polychromatic/stable
+	sudo apt update
+  	sudo apt install -y openrazer-meta polychromatic
+	sudo gpasswd -a $USER plugdev
+	#reboot
+	
 #TODO così non lo installi, ci vorrebbe un comando per scaricarlo e installarlo
 #! così non funziona! bisogna controllare che la cartella .fonts esista e crearla se non esiste già!
 #! fare .phony e metterci input font dentro
