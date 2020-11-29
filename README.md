@@ -7,3 +7,5 @@
 + aggiungere maybe comando da runnare alla fine che faccia un apt autoremove e l'altro comando simile (controllare che non siano la stessa cosa) 
 
 + Modificare i comandi che scaricano cose in modo che le cose vengano effettivamente salvate nella home e non nel folder del makefile! Così come sono ora scaricano il file e poi non riescono ad installarlo perche il file non è nella home!
+
++ Aggiungere comando al Makefile per installare CLion
