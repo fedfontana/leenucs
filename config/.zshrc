@@ -60,6 +60,7 @@ alias deemix='$HOME/deemix/startdeemix.sh'
 alias o='xdg-open'
 alias py='python3'
 alias bat='batcat --color=always --decorations=always --paging --tabs=2'
+alias clion='clion.sh'
 
 mckdir() {
 	mkdir "$1"
@@ -87,7 +88,7 @@ venv() {
 	source $1/bin/activate	
 }
 
-export PATH=$PATH:~/.flutter/bin:~/Android/Sdk/emulator:~/.npm-global/bin
+export PATH=$PATH:~/.flutter/bin:~/Android/Sdk/emulator:~/.npm-global/bin:~/.clion/bin/
 
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
