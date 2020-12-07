@@ -14,11 +14,6 @@ Name[en]=Eclipse
 Name[en_US]=Eclipse
 endef
 
-prova: 
-	touch popoprova.txt
-	@echo '$(info $(eclipse_desktop_string))' > popoprova.txt 
-
-
 update: 
 	sudo apt-get update
 
@@ -83,6 +78,14 @@ git:
 git_config: git
 	git config --global user.email "federico.fontana2000@gmail.com"
 	git config --global user.name "Federico Fontana"
+
+cargo:
+  sudo apt install cargo -y
+onefetch: cargo
+  git clone https://github.com/o2sh/onefetch /tmp/onefetch
+  pushd /tmp/onefetch
+  make install
+  popd
 
 #?????
 setbootdefault:

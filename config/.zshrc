@@ -61,7 +61,8 @@ alias o='xdg-open'
 alias py='python3'
 alias bat='batcat --color=always --decorations=always --paging --tabs=2'
 alias clion='clion.sh'
-
+alias idea='idea.sh'
+alias matlab='/usr/local/MATLAB/R2020b/bin/matlab -softwareopengl'
 mckdir() {
 	mkdir "$1"
 	cd ./"$1"
@@ -88,7 +89,7 @@ venv() {
 	source $1/bin/activate	
 }
 
-export PATH=$PATH:~/.flutter/bin:~/Android/Sdk/emulator:~/.npm-global/bin:~/.clion/bin/
+export PATH=$PATH:~/.flutter/bin:~/Android/Sdk/emulator:~/.npm-global/bin:~/.clion/bin:~/.intellijIdea/bin
 
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -111,3 +112,13 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
+
+HISTFILE=~/.zsh_history
+#HISTSIZE=1000
+#if((!EUID)); then
+#	HISTFILE=~/.zsh_history_root
+#else
+#	HISTFILE=~/.zsh_history
+#fi
+#SAVEHIST=1000
+
