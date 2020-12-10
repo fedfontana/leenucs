@@ -63,6 +63,7 @@ alias bat='batcat --color=always --decorations=always --paging --tabs=2'
 alias clion='clion.sh'
 alias idea='idea.sh'
 alias matlab='/usr/local/MATLAB/R2020b/bin/matlab -softwareopengl'
+alias gbr='xdg-open "https://gitlab.com/$(git remote get-url origin| cut -c16-)"'
 mckdir() {
 	mkdir "$1"
 	cd ./"$1"
@@ -89,7 +90,7 @@ venv() {
 	source $1/bin/activate	
 }
 
-export PATH=$PATH:~/.flutter/bin:~/Android/Sdk/emulator:~/.npm-global/bin:~/.clion/bin:~/.intellijIdea/bin
+export PATH=$PATH:~/.flutter/bin:~/Android/Sdk/emulator:~/.npm-global/bin:~/.clion/bin:~/.intellijIdea/bin:~/.flutter/.pub-cache/bin
 
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -122,3 +123,5 @@ HISTFILE=~/.zsh_history
 #fi
 #SAVEHIST=1000
 
+# Set manpager
+#export MANPAGER="sh -c 'col -bx | bat -l man -p'"
