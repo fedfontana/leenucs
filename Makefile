@@ -42,6 +42,9 @@ grub_customizer:
 sshkey:
 	ssh-keygen
 
+meld:
+  sudo apt install -y meld
+
 #? mettere il check! questo funziona solo su popos
 vscode:
 	sudo apt install code
