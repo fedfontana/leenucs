@@ -64,6 +64,8 @@ alias clion='clion.sh'
 alias idea='idea.sh'
 alias matlab='/usr/local/MATLAB/R2020b/bin/matlab -softwareopengl'
 alias gbr='xdg-open "https://gitlab.com/$(git remote get-url origin| cut -c16-)"'
+alias rmjava='find . -name "*.class" -exec rm -f {} \;'
+alias todo='task'
 mckdir() {
 	mkdir "$1"
 	cd ./"$1"

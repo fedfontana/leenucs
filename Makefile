@@ -27,6 +27,10 @@ jetbrains: curl
 	rm ~/JetBrainsMono-1.0.3.zip
 	fc-cache -fv	
 
+keylayout:
+  setxkbmap -rules evdev -model pc105 -layout it -variant ,
+  setxkbmap -query
+
 curl:
 	sudo apt install -y curl
 
