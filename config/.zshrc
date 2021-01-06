@@ -41,7 +41,7 @@ ZSH_THEME="eastwood"
 
 
 # Aliases
-
+alias la='ls -AlH --color=auto --hyperlink=all'
 alias vimrc='nvim $HOME/.vimrc'
 #alias piconnect='ssh ubuntu 192.168.1.98'
 alias vim='nvim'
