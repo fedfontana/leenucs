@@ -39,8 +39,11 @@ ZSH_THEME="eastwood"
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
+######################################################################################################TMP
+cat ~/ansia.txt
 
 # Aliases
+alias v='nvim'
 alias la='ls -AlH --color=auto --hyperlink=all'
 alias vimrc='nvim $HOME/.vimrc'
 #alias piconnect='ssh ubuntu 192.168.1.98'
@@ -63,9 +66,10 @@ alias bat='batcat --color=always --decorations=always --paging --tabs=2'
 alias clion='clion.sh'
 alias idea='idea.sh'
 alias matlab='/usr/local/MATLAB/R2020b/bin/matlab -softwareopengl'
-alias gbr='xdg-open "https://gitlab.com/$(git remote get-url origin| cut -c16-)"'
+alias gbr="xdg-open $(git remote get-url origin | sed -e 's/git\@/https:\/\//;s/:/\//2')"
 alias rmjava='find . -name "*.class" -exec rm -f {} \;'
 alias todo='task'
+alias anki='anki &>/dev/null & disown'
 mckdir() {
 	mkdir "$1"
 	cd ./"$1"
