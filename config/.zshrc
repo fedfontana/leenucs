@@ -40,7 +40,6 @@ ZSH_THEME="eastwood"
 # HIST_STAMPS="mm/dd/yyyy"
 
 ######################################################################################################TMP
-cat ~/ansia.txt
 
 # Aliases
 alias v='nvim'
@@ -66,7 +65,7 @@ alias bat='batcat --color=always --decorations=always --paging --tabs=2'
 alias clion='clion.sh'
 alias idea='idea.sh'
 alias matlab='/usr/local/MATLAB/R2020b/bin/matlab -softwareopengl'
-alias gbr="xdg-open $(git remote get-url origin | sed -e 's/git\@/https:\/\//;s/:/\//2')"
+alias gbr='xdg-open $(git remote get-url origin | sed -e "s/git\@/https:\/\//;s/:/\//2")'
 alias rmjava='find . -name "*.class" -exec rm -f {} \;'
 alias todo='task'
 alias anki='anki &>/dev/null & disown'
